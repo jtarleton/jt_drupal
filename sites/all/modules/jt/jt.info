@@ -1,0 +1,9 @@
+name = JT Widget
+description = Provides a jt widget.
+core = 7.x
+package = jt
+;dependencies[] = views
+;dependencies[] = panels
+files[] = tests/example.test
+configure = admin/config/content/jt
+

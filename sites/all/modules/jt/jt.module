@@ -1,0 +1,89 @@
+<?php 
+
+
+function sayhello(){
+return 'HELLO WORLD';
+}
+/**
+ * Implements hook_menu().
+ *
+ * Provide locations/URLs
+ */
+function jt_menu() {
+  
+  $items = array();
+
+  $items['hello'] = array(
+    'title' => t('JT'),
+    'page callback' =>'sayhello', //theme('jt'), /* can call anything here, even theme() which would allow for templates and preprocessing of the form */
+   // 'theme callback'=>'jt_theme',
+    //'page arguments' => array(0,1),
+	'access arguments'=>array('access content'),
+	
+
+    //'access callback' => 'adid_custom_user_access',
+  //  'access arguments' => array('access adid'),
+    'description' => 'Jt description',
+    'type' => MENU_NORMAL_ITEM,
+    //'file' => 'jt_form.inc',
+  ); 
+
+  return $items;
+
+}
+
+
+/**
+ * Implements hook_theme().
+ *
+ * Defines the theming capabilities provided by this module.
+ */
+function jt_theme(){
+
+  $items = array();
+
+  $items['page_jt'] = array(
+    'render element' => 'page',
+    'template' => 'page-jt',
+  );
+
+  $items['block_jt']=array(
+    'render_element'=>'block',
+    'template'=>'block-jt'
+  );
+
+  $items['form_jt']=array(
+    'render_element'=>'form',
+    'template'=>'form-jt'
+  );
+
+  return $items;
+
+}
+
+
+/**
+ * Implements hook_form().
+ *
+ */
+function jt_form(){ 
+
+}
+
+
+/**
+ * Implements hook_validate().
+ *
+ */
+function jt_form_validate(){ 
+
+}
+
+
+/**
+ * Implements hook_submit().
+ *
+ */
+function jt_form_submit(){ 
+
+}
